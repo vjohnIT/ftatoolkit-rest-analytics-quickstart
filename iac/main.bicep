@@ -22,11 +22,13 @@ resource storage_account 'Microsoft.Storage/storageAccounts@2021-09-01' = {
 }
 
 resource storage_blob_services 'Microsoft.Storage/storageAccounts/blobServices@2021-09-01' = {
-  name:  '${storage_account.name}/default'
+  parent: storage_account
+  name:  'default'
 }
 
 resource storage_container_synapse 'Microsoft.Storage/storageAccounts/blobServices/containers@2021-09-01' = {
-  name: '${storage_account.name}/default/${defaultDataLakeStorageFilesystemName}'
+  parent: storage_blob_services
+  name: '${defaultDataLakeStorageFilesystemName}'
   properties: {
     publicAccess: 'None'
   }
