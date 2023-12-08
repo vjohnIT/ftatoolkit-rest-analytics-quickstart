@@ -28,13 +28,10 @@ resource storage_blob_services 'Microsoft.Storage/storageAccounts/blobServices@2
 
 resource storage_container_synapse 'Microsoft.Storage/storageAccounts/blobServices/containers@2021-09-01' = {
   parent: storage_blob_services
-  name: '${defaultDataLakeStorageFilesystemName}'
+  name: 'defaultDataLakeStorageFilesystemName'
   properties: {
     publicAccess: 'None'
   }
-  dependsOn:[
-    storage_blob_services
-  ]
 } 
 
 resource synapse 'Microsoft.Synapse/workspaces@2021-06-01' = {
