@@ -64,8 +64,8 @@ jobs:
         tenantId: ${{secrets.TENANT_ID}}
         clientSecret: ${{secrets.CLIENT_SECRET}}
         subscriptionId: ${{secrets.SUBSCRIPTION_ID}}
-        TemplateFile: raqsynapse/TemplateForWorkspace.json
-        ParametersFile: raqsynapse/TemplateParametersForWorkspace.json
+        TemplateFile: rasvjsynapse/TemplateForWorkspace.json
+        ParametersFile: rasvjsynapse/TemplateParametersForWorkspace.json
         OverrideArmParameters: parameters.yml
         Environment: 'Azure Public'
         resourceGroup: ${{ inputs.resourceGroup }}
